@@ -1,9 +1,6 @@
-import { createSignal, onCleanup, splitProps } from 'solid-js';
+import { createSignal } from 'solid-js';
 import { deleteTodo, editTodo, toggleTodo } from './state';
 import { Todo as TodoProps } from './types';
-import clickOutside from './clickOutside';
-
-const outisdeClick = clickOutside;
 
 export const Todo = (props: TodoProps) => {
   const name = `${props.id}-checkbox`;
@@ -11,10 +8,7 @@ export const Todo = (props: TodoProps) => {
 
   return (
     <>
-      <form
-        class="flex items-center justify-between my-2 p-2 gap-2 border border-gray-300 rounded"
-        use:clickOutside={() => console.log('clicked outside')}
-      >
+      <form class="flex items-center justify-between my-2 p-2 gap-2 border border-gray-300 rounded">
         <div class="flex items-center">
           <input
             id={name}
